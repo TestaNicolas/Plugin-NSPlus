@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMLDB PATH="mod/pluginconns/db" VERSION="2023051401" COMMENT="Estructura de la base de datos para el plugin ns">
+    <TABLES>
+        <TABLE NAME="pluginconns" COMMENT="Tabla principal para el plugin ns">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="ID único"/>
+                <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" COMMENT="Nombre del plugin"/>
+                <FIELD NAME="intro" TYPE="text" NOTNULL="false" COMMENT="Introducción"/>
+                <FIELD NAME="introformat" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" COMMENT="Formato de introducción"/>
+                <FIELD NAME="exammode" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" COMMENT="Modo Examen"/>
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" COMMENT="Tiempo de creación"/>
+                <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" COMMENT="Tiempo de modificación"/>
+                <FIELD NAME="startdate" TYPE="int" LENGTH="10" NOTNULL="false" COMMENT="Fecha de inicio"/>
+                <FIELD NAME="enddate" TYPE="int" LENGTH="10" NOTNULL="false" COMMENT="Fecha de finalización"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Clave primaria"/>
+            </KEYS>
+        </TABLE>
+    </TABLES>
+</XMLDB>
+

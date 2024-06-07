@@ -1,0 +1,53 @@
+/* statements colors */
+
+.for-statement,
+.while-statement,
+.dowhile-statement {
+	background-color: #ddddff; /*pale purple*/
+}
+
+.conditional-statement,
+.conditional-statement,
+.conditional-statement .body .case .test-value {
+	background-color: #ddffff; /*w3 pale blue*/
+}
+
+.conditional-statement .body .case .test-value {
+	background-color: #b2e5ff;
+}
+
+.input-statement {
+	background-color: #ffe7e7; /*w3 pale red*/
+}
+
+.output-statement {
+	background-color: #ddffdd; /*w3 pale green*/
+}
+
+.call-statement,
+.block-statement,
+.assignment-statement,
+.return-statement,
+.break-statement {
+	background-color: #ffffcc; /*w3 pale yellow*/
+}
+
+.comment-statement {
+	background-color: #e5e5e5; /*w3 pale yellow*/
+}
+
+
+/*
+#actualDiagram>.statements {
+	background: skyblue;
+}
+
+.method-declaration {
+    background: mistyrose;
+}
+
+.local-variable-declaration,
+.local-const-declaration {
+    background: palegreen;
+}
+*/
