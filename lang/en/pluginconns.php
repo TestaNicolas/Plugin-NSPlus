@@ -8,7 +8,10 @@ $string['pluginconns:addinstance'] = 'Add a new plugin instance';
 $string['pluginconns:view'] = 'View Ns';
 $string['pluginconns'] = 'pluginconns';
 $string['pluginadministration'] = 'pluginconns administration';
-$string['startdate'] = 'Start Date';
-$string['enddate'] = 'End Date';
+$string['exammode'] = 'Modo Examen';
+$string['exammode_desc'] = 'Activar modo examen';
+$string['startdate'] = 'Fecha de inicio del examen';
+$string['enddate'] = 'Fecha de fin del examen';
 $string['exam_mode_active'] = 'Exam Mode is active';
 $string['exam_mode_inactive'] = 'Exam Mode is inactive';
+

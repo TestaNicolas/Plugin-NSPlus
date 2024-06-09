@@ -32,14 +32,13 @@ date_default_timezone_set('UTC');
 $examStartDate = gmdate('Y-m-d\TH:i:s', strtotime('+8 hours', $pluginconns->startdate));
 $examEndDate = gmdate('Y-m-d\TH:i:s', strtotime('+8 hours', $pluginconns->enddate));
 
-
-
+$exammode = $pluginconns->exammode;
 
 global $USER;
 
 // Preparar los datos del usuario para pasarlos mediante POST.
 $user_info = array(
-    'username' => $USER->username, 
+    'username' => $USER->username,
     'userId' => $USER->id,
     'userEmail' => $USER->email,
     'userRole' => $USER->role,
@@ -47,16 +46,16 @@ $user_info = array(
     'courseName' => $course->fullname,
     'examStartDate' => $examStartDate,
     'examEndDate' => $examEndDate,
+    //'exammode' => $exammode
 );
-
 ?>
 
-<form id="redirectForm" method="post" action="index.php">
+<form id="redirectForm" method="post" action="index.php"> <!-- Formulario que se enviará mediante POST a 'index.php' -->
     <?php foreach ($user_info as $key => $value): ?>
         <input type="hidden" name="<?php echo htmlspecialchars($key); ?>" value="<?php echo htmlspecialchars($value); ?>">
     <?php endforeach; ?>
 </form>
 
 <script type="text/javascript">
-    document.getElementById('redirectForm').submit();
+    document.getElementById('redirectForm').submit(); // Se envía automáticamente el formulario al cargar la página
 </script>

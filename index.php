@@ -1,5 +1,5 @@
 <?php
-// Obtener los datos del formulario POST}
+// Obtener los datos del formulario POST
 $username = isset($_POST['username']) ? $_POST['username'] : 'Nombre del usuario no disponible';
 $userId = isset($_POST['userId']) ? $_POST['userId'] : 'ID del usuario no disponible';
 $userEmail = isset($_POST['userEmail']) ? $_POST['userEmail'] : 'Correo electrónico del usuario no disponible';
@@ -8,6 +8,7 @@ $fullname = isset($_POST['fullname']) ? $_POST['fullname'] : 'Nombre completo de
 $courseName = isset($_POST['courseName']) ? $_POST['courseName'] : 'Nombre del curso no disponible';
 $examStartDate = isset($_POST['examStartDate']) ? $_POST['examStartDate'] : 'Fecha de inicio del examen no disponible';
 $examEndDate = isset($_POST['examEndDate']) ? $_POST['examEndDate'] : 'Fecha de fin del examen no disponible';
+$exammode = isset($_POST['exammode']) ? $_POST['exammode'] : 0;
 ?>
 
 <html>
@@ -27,12 +28,6 @@ $examEndDate = isset($_POST['examEndDate']) ? $_POST['examEndDate'] : 'Fecha de 
 	<link rel="stylesheet" type="text/css" href="css/animations.css" />
 	<link rel="stylesheet" type="text/css" href="css/switch-button.css" />
 	<link rel="stylesheet" type="text/css" href="css/NSPColors.css" id="css/NSPColors.css" />
-	<script type="text/javascript">
-		var prueba = {
-			examStartDate: <?php echo json_encode($mform->startdate); ?>, 
-            examEndDate: <?php echo json_encode($mform->enddate); ?>,
-		};
-	</script>
     <script type="text/javascript">
         var nsParams = {
             username: <?php echo json_encode($username); ?>,
@@ -41,12 +36,34 @@ $examEndDate = isset($_POST['examEndDate']) ? $_POST['examEndDate'] : 'Fecha de 
             userRole: <?php echo json_encode($userRole); ?>,
             fullname: <?php echo json_encode($fullname); ?>,
             courseName: <?php echo json_encode($courseName); ?>,
-            isExam: 0,
+			isExam: '',
             examStartDate: <?php echo json_encode($examStartDate); ?>, 		// 2024-05-20T00:00:00.000Z
             examEndDate: <?php echo json_encode($examEndDate); ?>,			// 2024-05-20T00:00:00.000Z
 			documentName: ""
         };
     </script>
+	<!-- <script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', function() {
+			var modeExamCheckbox = document.getElementById('id_modeexam');
+			var startDateField = document.getElementById('id_startdate');
+			var endDateField = document.getElementById('id_enddate');
+
+			function toggleDateFields() {
+				if (modeExamCheckbox.checked) {
+					startDateField.disabled = false;
+					endDateField.disabled = false;
+				} else {
+					startDateField.disabled = true;
+					endDateField.disabled = true;
+				}
+			}
+
+			modeExamCheckbox.addEventListener('change', toggleDateFields);
+
+			// Inicializar el estado de los campos de fecha
+			toggleDateFields();
+		});
+	</script> -->
 </head>
 
 <body style="display:none">

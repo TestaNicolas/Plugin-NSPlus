@@ -5,11 +5,16 @@ function pluginconns_add_instance($pluginconns) {
     global $DB;
 
     $pluginconns->timecreated = time();
-    $pluginconns->timemodified = time();
-    $pluginconns->startdate = $pluginconns->startdate;
-    $pluginconns->enddate = $pluginconns->enddate;
 
-    return $DB->insert_record('pluginconns', $pluginconns);
+    // Si el modo examen no está activado, establecer fechas a null
+    if (empty($pluginconns->exammode)) {
+        $pluginconns->startdate = null;
+        $pluginconns->enddate = null;
+    }
+
+    $pluginconns->id = $DB->insert_record('pluginconns', $pluginconns);
+
+    return $pluginconns->id;
 }
 
 function pluginconns_update_instance($pluginconns) {
@@ -17,12 +22,15 @@ function pluginconns_update_instance($pluginconns) {
 
     $pluginconns->timemodified = time();
     $pluginconns->id = $pluginconns->instance;
-    $pluginconns->startdate = $pluginconns->startdate;
-    $pluginconns->enddate = $pluginconns->enddate;
+
+    // Si el modo examen no está activado, establecer fechas a null
+    if (empty($pluginconns->exammode)) {
+        $pluginconns->startdate = null;
+        $pluginconns->enddate = null;
+    }
 
     return $DB->update_record('pluginconns', $pluginconns);
 }
-
 
 function pluginconns_delete_instance($id) {
     global $DB;
@@ -34,8 +42,5 @@ function pluginconns_delete_instance($id) {
 
 function pluginconns_extend_settings_navigation(settings_navigation $settingsnav, navigation_node $pluginconnsnode) {
     global $PAGE;
-
 }
-
-
-
+?>
