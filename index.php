@@ -1,5 +1,5 @@
 <?php
-// Obtener los datos del formulario POST}
+// Obtener los datos del formulario POST
 $username = isset($_POST['username']) ? $_POST['username'] : 'Nombre del usuario no disponible';
 $userId = isset($_POST['userId']) ? $_POST['userId'] : 'ID del usuario no disponible';
 $userEmail = isset($_POST['userEmail']) ? $_POST['userEmail'] : 'Correo electrónico del usuario no disponible';
@@ -8,31 +8,32 @@ $fullname = isset($_POST['fullname']) ? $_POST['fullname'] : 'Nombre completo de
 $courseName = isset($_POST['courseName']) ? $_POST['courseName'] : 'Nombre del curso no disponible';
 $examStartDate = isset($_POST['examStartDate']) ? $_POST['examStartDate'] : 'Fecha de inicio del examen no disponible';
 $examEndDate = isset($_POST['examEndDate']) ? $_POST['examEndDate'] : 'Fecha de fin del examen no disponible';
+$exammodeActive = isset($_POST['exammodeActive']) ? $_POST['exammodeActive'] : '0';
+
+// Verificar si exammodeActive es "0" y ajustar las fechas
+if ($exammodeActive === "0") {
+    $examStartDate = "";
+    $examEndDate = "";
+}
 ?>
 
 <html>
 
 <head>
-	<meta charset="utf-8" />
-	<title>NS Plus</title>
-	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/w3.css" />
-	<link rel="stylesheet" type="text/css" href="css/NSPDiagram.css" />
-	<link rel="stylesheet" type="text/css" href="css/NSPEditor.css" />
-	<link rel="stylesheet" type="text/css" href="css/NSPMenu.css" />
-	<link rel="stylesheet" type="text/css" href="css/NSPPDF.css" />
-	<link rel="stylesheet" type="text/css" href="css/animations.css" />
-	<link rel="stylesheet" type="text/css" href="css/switch-button.css" />
-	<link rel="stylesheet" type="text/css" href="css/NSPColors.css" id="css/NSPColors.css" />
-	<script type="text/javascript">
-		var prueba = {
-			examStartDate: <?php echo json_encode($mform->startdate); ?>, 
-            examEndDate: <?php echo json_encode($mform->enddate); ?>,
-		};
-	</script>
+    <meta charset="utf-8" />
+    <title>NS Plus</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/w3.css" />
+    <link rel="stylesheet" type="text/css" href="css/NSPDiagram.css" />
+    <link rel="stylesheet" type="text/css" href="css/NSPEditor.css" />
+    <link rel="stylesheet" type="text/css" href="css/NSPMenu.css" />
+    <link rel="stylesheet" type="text/css" href="css/NSPPDF.css" />
+    <link rel="stylesheet" type="text/css" href="css/animations.css" />
+    <link rel="stylesheet" type="text/css" href="css/switch-button.css" />
+    <link rel="stylesheet" type="text/css" href="css/NSPColors.css" id="css/NSPColors.css" />
     <script type="text/javascript">
         var nsParams = {
             username: <?php echo json_encode($username); ?>,
@@ -42,9 +43,10 @@ $examEndDate = isset($_POST['examEndDate']) ? $_POST['examEndDate'] : 'Fecha de 
             fullname: <?php echo json_encode($fullname); ?>,
             courseName: <?php echo json_encode($courseName); ?>,
             isExam: 0,
-            examStartDate: <?php echo json_encode($examStartDate); ?>, 		// 2024-05-20T00:00:00.000Z
-            examEndDate: <?php echo json_encode($examEndDate); ?>,			// 2024-05-20T00:00:00.000Z
-			documentName: ""
+            exammodeActive: <?php echo json_encode($exammodeActive); ?>,
+            examStartDate: <?php echo json_encode($examStartDate); ?>,
+            examEndDate: <?php echo json_encode($examEndDate); ?>,
+            documentName: ""
         };
     </script>
 </head>

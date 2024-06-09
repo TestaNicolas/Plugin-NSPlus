@@ -47,6 +47,7 @@ $user_info = array(
     'courseName' => $course->fullname,
     'examStartDate' => $examStartDate,
     'examEndDate' => $examEndDate,
+    'exammodeActive' => $pluginconns->exammode
 );
 
 ?>
