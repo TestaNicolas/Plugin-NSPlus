@@ -9,12 +9,14 @@ $courseName = isset($_POST['courseName']) ? $_POST['courseName'] : 'Nombre del c
 $examStartDate = isset($_POST['examStartDate']) ? $_POST['examStartDate'] : 'Fecha de inicio del examen no disponible';
 $examEndDate = isset($_POST['examEndDate']) ? $_POST['examEndDate'] : 'Fecha de fin del examen no disponible';
 $exammodeActive = isset($_POST['exammodeActive']) ? $_POST['exammodeActive'] : '0';
+$isExam = isset($_POST['isExam']) ? $_POST['isExam'] : '0';
 
 // Verificar si exammodeActive es "0" y ajustar las fechas
 if ($exammodeActive === "0") {
     $examStartDate = "";
     $examEndDate = "";
 }
+
 ?>
 
 <html>
@@ -43,7 +45,6 @@ if ($exammodeActive === "0") {
             fullname: <?php echo json_encode($fullname); ?>,
             courseName: <?php echo json_encode($courseName); ?>,
             isExam: 0,
-            exammodeActive: <?php echo json_encode($exammodeActive); ?>,
             examStartDate: <?php echo json_encode($examStartDate); ?>,
             examEndDate: <?php echo json_encode($examEndDate); ?>,
             documentName: ""
@@ -55,8 +56,7 @@ if ($exammodeActive === "0") {
 	<header id="header" class="w3-bar w3-indigo w3-top">
 		<img src="img/ort-logo-blanco.png" class="w3-image w3-bar-item" id="ortLogo" alt="ORTLogo" />
 		<img src="img/nsplus-logo-white.png" class="w3-image w3-bar-item" id="nsplusLogo" alt="NSPlusLogo" />
-		<input id="inputProjectName" type="text" class="w3-bar-item w3-light-grey w3-input"
-			placeholder="Proyecto sin título">
+		<input id="inputProjectName" type="text" class="w3-bar-item w3-light-grey w3-input" placeholder="<?php echo $fullname . ' - ' . $courseName; ?>" title="<?php echo $fullname . ' - ' . $courseName; ?>">
 		<div class="w3-bar-item">
 			<button type="button" id="importProjectBtn" class="w3-btn w3-text-dark-gray w3-light-grey w3-xlarge"><i
 					class="fa fa-folder-open-o"></i></button>
