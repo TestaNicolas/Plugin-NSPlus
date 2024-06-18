@@ -1241,6 +1241,7 @@ function exportProject() {
 
 	if (!nsParams.isExam) {
 		if (inputValue != "") {
+			console.log(inputValue)
 			filename = inputValue + ".nsplus";
 		} 
 	}

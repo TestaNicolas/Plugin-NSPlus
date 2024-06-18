@@ -32,9 +32,6 @@ date_default_timezone_set('UTC');
 $examStartDate = gmdate('Y-m-d\TH:i:s', strtotime('+8 hours', $pluginconns->startdate));
 $examEndDate = gmdate('Y-m-d\TH:i:s', strtotime('+8 hours', $pluginconns->enddate));
 
-
-
-
 global $USER;
 
 // Preparar los datos del usuario para pasarlos mediante POST.
@@ -47,7 +44,7 @@ $user_info = array(
     'courseName' => $course->fullname,
     'examStartDate' => $examStartDate,
     'examEndDate' => $examEndDate,
-    'isExam' => $pluginconns->exammode
+    'exammodeActive' => $pluginconns->exammode
 );
 
 ?>

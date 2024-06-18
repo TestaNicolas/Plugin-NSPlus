@@ -10,17 +10,17 @@ class mod_pluginconns_mod_form extends moodleform_mod {
         global $CFG, $DB;
         $mform = $this->_form;
 
-        // General section header
-        $mform->addElement('header', 'general', get_string('general', 'form'));
+        // Modo Examen section header
+        $mform->addElement('header', 'exammodeheader', get_string('exammodeheader', 'pluginconns'));
 
         // Add the checkbox for "Exam Mode"
         $mform->addElement('advcheckbox', 'exammode', get_string('exammode', 'pluginconns'), get_string('exammode_desc', 'pluginconns'));
         $mform->setType('exammode', PARAM_BOOL);
+        $mform->addHelpButton('exammode', 'helpidentifier', 'pluginconns');
 
         // Add date fields
         $mform->addElement('date_time_selector', 'startdate', get_string('startdate', 'pluginconns'));
         $mform->disabledIf('startdate', 'exammode', 'notchecked');
-
         $mform->addElement('date_time_selector', 'enddate', get_string('enddate', 'pluginconns'));
         $mform->disabledIf('enddate', 'exammode', 'notchecked');
 
@@ -44,5 +44,4 @@ class mod_pluginconns_mod_form extends moodleform_mod {
     }
 
 }
-
 ?>

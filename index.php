@@ -9,7 +9,6 @@ $courseName = isset($_POST['courseName']) ? $_POST['courseName'] : 'Nombre del c
 $examStartDate = isset($_POST['examStartDate']) ? $_POST['examStartDate'] : 'Fecha de inicio del examen no disponible';
 $examEndDate = isset($_POST['examEndDate']) ? $_POST['examEndDate'] : 'Fecha de fin del examen no disponible';
 $exammodeActive = isset($_POST['exammodeActive']) ? $_POST['exammodeActive'] : '0';
-$isExam = isset($_POST['isExam']) ? $_POST['isExam'] : '0';
 
 // Verificar si exammodeActive es "0" y ajustar las fechas
 if ($exammodeActive === "0") {
